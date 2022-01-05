@@ -4,10 +4,12 @@
 		<title>My portfolio</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/styles.css" />
 		<!-- Unicons -->
 		<link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 		<!-- Swiper CSS -->
+		<link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+
+		<link rel="stylesheet" href="assets/css/styles.css" />
 
 	</head>
 	<body>
@@ -543,10 +545,10 @@
 				<h2 class="section__title">Portfolio</h2>
 				<span class="section__subtitle">Most recent Work</span>
 
-				<dic class="portfolio__container container">
-					<div>
+				<div class="portfolio__container container swiper-container">
+					<div class="swiper-wrapper">
 						<!-- PORTFOLIO 1 -->
-						<div class="portfolio__content grid">
+						<div class="portfolio__content grid swiper-slide">
 							<img src="assets/img/portfolio1.jpg" alt="" class="portfolio__img">
 
 							<div class="portfolio__data">
@@ -559,8 +561,8 @@
 								
 							</div>
 						</div>
-						<!-- PORTFOLIO 1 -->
-						<div class="portfolio__content grid">
+						<!-- PORTFOLIO 2 -->
+						<div class="portfolio__content grid swiper-slide">
 							<img src="assets/img/portfolio1.jpg" alt="" class="portfolio__img">
 
 							<div class="portfolio__data">
@@ -574,13 +576,27 @@
 							</div>
 						</div> 
 					</div>
-				</dic>
+					
+					<!-- Add Arrows -->
+					<div class="swiper-button-next">
+						<i class="uil uil-angle-right-b swiper-portfolio-icon"></i>
+					</div>
+					<div class="swiper-button-prev">
+						<i class="uil uil-angle-left-b swiper-portfolio-icon"></i>
+					</div>
+					<!-- Add Pagination -->
+					<div class="swiper-pagination"></div>
+
+				</div>
 			</section>
 
 		</main>
 
+		<!-- SWIPPER JS -->
+		<script src="assets/js/swiper-bundle.min.js"></script>
+
 		<!-- Scripts -->
-	 <script src="assets/js/main.js"></script>
+	 	<script src="assets/js/main.js"></script>
 
 	</body>
 </html>
