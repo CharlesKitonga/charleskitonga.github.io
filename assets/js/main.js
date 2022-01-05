@@ -156,3 +156,33 @@ function scrollUp(){
 window.addEventListener('scroll', scrollUp)
 
 /*==================== DARK LIGHT THEME ====================*/ 
+const themeButton = document.getElementById('theme-button')
+const darkTheme = 'dark-theme'
+const iconTheme = 'uil-sun'
+
+// see previously selected topic by user
+const selectedTheme = localStorage.getItem('selected-theme')
+const selectedIcon = localStorage.getItem('selected-icon')
+
+// Obtain the current theme that the interface has by validating the dark them class
+const getCurrentTheme = () => document.body.classList.contains(darkTheme) ? 'dark' : 'light'
+const getCurrenticon = () => document.body.classList.contains(iconTheme) ? 'uil-moon' : 'uil-sun'
+
+// validate if a user previously chose a topic
+if (selectedTheme) {
+    document.body.classList[selectedTheme === 'dark' ? 'add' : 'remove'](darkTheme)
+    themeButton.classList[selectedIcon === 'uil-moon' ? 'add' : 'remove'](iconTheme)
+}
+
+// finally activate/deactivate the theme manually via the buttons
+themeButton.addEventListener('click', () => {
+    // 1. add/remove the dark/icon theme
+    document.body.classList.toggle(darkTheme)
+    themeButton.classList.toggle(iconTheme)
+
+    // save the theme & current icon to the browser
+    localStorage.setItem('selected-theme', getCurrentTheme())
+    localStorage.setItem('selected-icon', getCurrenticon())
+
+
+})
