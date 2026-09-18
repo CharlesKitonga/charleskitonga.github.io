@@ -197,14 +197,26 @@ img{
 @media screen and (max-width: 767px) {
     .nav__menu{
         position: fixed;
-        bottom: -100%;
+        top: -100%;
+        bottom: auto;
         left: 0;
         width: 100%;
+        max-height: calc(100vh - var(--header-height));
+        overflow-y: auto;
         background-color: var(--body-color);
-        padding: 2rem 1.5rem 4rem;
-        box-shadow: 0 -1px 4px rgba(0, 0, 0, .15);
-        border-radius: 1.5rem 1.5rem 0 0;
+        padding: 1.5rem 1.5rem 2.5rem;
+        box-shadow: 0 8px 20px rgba(16, 42, 67, .14);
+        border-radius: 0 0 .75rem .75rem;
         transition: .3s;
+    }
+    .nav__list{
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem .75rem;
+    }
+    .nav__close{
+        top: .75rem;
+        right: 1.25rem;
+        bottom: auto;
     }
 }
 .nav__list{
@@ -239,7 +251,7 @@ img{
 
 /* show menu */
 .show-menu{
-    bottom: 0;
+    top: var(--header-height);
 }
 
 /* Active link */
@@ -249,7 +261,7 @@ img{
 
 /* Change background header */
 .scroll-header{
-    box-shadow: 0 -1px 4px rgba(0, 0, 0, .15);
+    box-shadow: 0 1px 4px rgba(16, 42, 67, .12);
 }
 
 /*==================== HOME ====================*/
@@ -577,6 +589,8 @@ img{
 }
 .services__content{
     position: relative;
+    display: flex;
+    flex-direction: column;
     background-color: var(--container-color);
     padding: 3.5rem .5rem 1.25rem 1.5rem;
     border-radius: .25rem;
@@ -601,6 +615,7 @@ img{
 .services__button{
     cursor: pointer;
     font-size: var(--small-font-size);
+    margin-top: auto;
 }
 .services__button:hover .button__icon{
     transform: translateX(.25rem);
