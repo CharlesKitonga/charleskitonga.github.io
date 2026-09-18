@@ -133,10 +133,13 @@ function scrollActive(){
         const sectionTop = current.offsetTop - 50;
         sectionId = current.getAttribute('id')
 
+        const sectionLink = document.querySelector('.nav__menu a[href*=' + sectionId + ']')
+        if (!sectionLink) return
+
         if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
-            document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.add('active')
+            sectionLink.classList.add('active-link')
         }else{
-            document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.remove('active')
+            sectionLink.classList.remove('active-link')
         }
     })
 }
@@ -169,13 +172,13 @@ const getCurrentTheme = () => document.body.classList.contains(darkTheme) ? 'dar
 const getCurrenticon = () => document.body.classList.contains(iconTheme) ? 'uil-moon' : 'uil-sun'
 
 // validate if a user previously chose a topic
-if (selectedTheme) {
+if (selectedTheme && themeButton) {
     document.body.classList[selectedTheme === 'dark' ? 'add' : 'remove'](darkTheme)
     themeButton.classList[selectedIcon === 'uil-moon' ? 'add' : 'remove'](iconTheme)
 }
 
 // finally activate/deactivate the theme manually via the buttons
-themeButton.addEventListener('click', () => {
+if (themeButton) themeButton.addEventListener('click', () => {
     // 1. add/remove the dark/icon theme
     document.body.classList.toggle(darkTheme)
     themeButton.classList.toggle(iconTheme)
